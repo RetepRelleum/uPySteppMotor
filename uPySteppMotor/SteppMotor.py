@@ -13,7 +13,7 @@ class SteppMotor4:
     __init = True
     __angle = 0
 
-    def __init__(self, pin1=14, pin2=27, pin3=26, pin4=25, pinE=34):
+    def __init__(self, pin1=13, pin2=12, pin3=14, pin4=27, pinE=34):
         self.__pins = [0, 1, 2, 3]
         self.__pins[0] = Pin(pin1, mode=Pin.OUT)
         self.__pins[1] = Pin(pin2, mode=Pin.OUT)
@@ -42,7 +42,7 @@ class SteppMotor4:
             self.__pos += -1
         else:
             self.__pos += 1
-        if self.__pos == int(self.__max/(360/self.__angle))and self.__run:
+        if int(self.__pos) == int(self.__max/(360/self.__angle))and self.__run:
             self.stop()
             print(self.getAngle())
 
